@@ -28,6 +28,7 @@ def findhod(board):
     for i in range(0, 3):
         for j in range(0, 3):
             if board[i][j] == '"':
+                # Копирование доски в новую
                 new_board = board
                 new_board[i][j] = 'X'
                 move_val = spisok(new_board)
@@ -52,7 +53,7 @@ def oneif(bd):
 
 
 # Открываем поле из текстового файла и заносим в двумерный массив
-with open('pole.txt', 'r') as file:
+with open('vhod3.txt', 'r') as file:
     lines = file.readlines()
 # Удаляем символ новой строки и разбиваем строки на символы:
 bd= [list(line.strip()) for line in lines]
