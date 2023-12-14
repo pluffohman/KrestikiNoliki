@@ -10,7 +10,7 @@ def spisok(board):
     lines += [[board[i][j] for i in range(3)] for j in range(3)]
     # списки главной и побочной диагонали
     lines += [[board[i][i] for i in range(3)], [board[i][2 - i] for i in range(3)]]
-    # проверка на то, что строка полностью состоит из x и y
+    # проверка на то, что строка полностью состоит из крестиков и ноликов
     for i in lines:
         if 'X' in i and i.count('X') == len(i):
             return 1
@@ -30,16 +30,19 @@ def findhod(board):
             if board[i][j] == '"':
                 # Копирование доски в новую
                 new_board = board
+                #Помещаем крестик в новую доску
                 new_board[i][j] = 'X'
+                # Проверяем, выиграет ли крестик
                 move_val = spisok(new_board)
+                # Если он выиграет, тогда это будет лучшим ходом
                 if move_val > bznach:
                     anshod = (i, j)
                     bznach = move_val
-    return anshod
+        return anshod
 
 # Нужно обязательно сделать проверку на одну оставшуюся клетку. Напишем для этого функцию oneif
 def oneif(bd):
-    coun = 0;
+    coun = 0
     x, y = 0, 0
     for i in range(0, 3):
         for j in range(0, 3):
