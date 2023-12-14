@@ -59,7 +59,7 @@ def oneif(bd):
 
 
 # Открываем поле из текстового файла и заносим в двумерный массив
-with open('vhod3.txt', 'r') as file:
+with open('vhod1.txt', 'r') as file:
     lines = file.readlines()
 # Удаляем символ новой строки и разбиваем строки на символы:
 bd= [list(line.strip()) for line in lines]
