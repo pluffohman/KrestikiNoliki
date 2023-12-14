@@ -23,7 +23,6 @@ def findhod(board):
     bznach = float('-inf')
     # Для отладки изначально присваиваю это значение
     anshod = (-90, -90)
-
     # Вычисление лучшего хода
     for i in range(0, 3):
         for j in range(0, 3):
@@ -35,10 +34,14 @@ def findhod(board):
                 # Проверяем, выиграет ли крестик
                 move_val = spisok(new_board)
                 # Если он выиграет, тогда это будет лучшим ходом
-                if move_val > bznach:
+                if move_val == 1:
                     anshod = (i, j)
                     bznach = move_val
-        return anshod
+                    return anshod
+                elif move_val == -1 and move_val<bznach:
+                    anshod = (i, j)
+                    bznach = move_val
+    return anshod
 
 # Нужно обязательно сделать проверку на одну оставшуюся клетку. Напишем для этого функцию oneif
 def oneif(bd):
